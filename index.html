@@ -300,6 +300,48 @@
             margin-bottom: 10px;
         }
 
+        /* Контакты */
+        .contacts-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 1.5rem;
+        }
+
+        .contact-card {
+            flex: 1;
+            min-width: 250px;
+            background: var(--accent-light);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .contact-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .phone-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border: 2px dashed var(--accent-color);
+        }
+
+        .contact-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
         /* Мечты */
         .dreams-container {
             display: flex;
@@ -423,6 +465,33 @@
             }
         }
 
+        /* Кнопка "Скопировать номер" */
+        .copy-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-btn:hover {
+            background: var(--holly-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-btn.copied {
+            background: var(--holly-green);
+        }
+
         /* Адаптивность */
         @media (max-width: 992px) {
             header {
@@ -450,7 +519,8 @@
             }
 
             .qualities-list,
-            .dreams-container {
+            .dreams-container,
+            .contacts-container {
                 flex-direction: column;
             }
 
@@ -461,6 +531,10 @@
             .skills-table th,
             .skills-table td {
                 padding: 10px;
+            }
+
+            .phone-number {
+                font-size: 1.4rem;
             }
 
             h1 {
@@ -497,6 +571,7 @@
         <nav>
             <a href="#about" class="nav-btn"><i class="fas fa-user"></i> Обо мне</a>
             <a href="#skills" class="nav-btn"><i class="fas fa-code"></i> Навыки</a>
+            <a href="#contacts" class="nav-btn"><i class="fas fa-phone"></i> Контакты</a>
             <a href="#dreams" class="nav-btn"><i class="fas fa-star"></i> Мечты</a>
 
             <div class="theme-switcher" id="themeSwitcher">
@@ -599,6 +674,48 @@
             <p><strong>Технологии:</strong> Всё, что связано с новинками в мире tech.</p>
         </section>
 
+        <section id="contacts">
+            <h2><i class="fas fa-address-card"></i> Мои контакты</h2>
+            <p>Если вы хотите связаться со мной для сотрудничества, обсуждения проектов или просто пообщаться, вот мои
+                контактные данные:</p>
+
+            <div class="contacts-container">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Телефон</h3>
+                    <div class="phone-number" id="phoneNumber">8 (888) 999-00-77</div>
+                    <button class="copy-btn" id="copyPhoneBtn">
+                        <i class="far fa-copy"></i> Скопировать номер
+                    </button>
+                    <p class="contact-note">Звоните с 10:00 до 20:00 по местному времени</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Местоположение</h3>
+                    <p><strong>Город:</strong> Каменск-Уральский</p>
+                    <p><strong>Страна:</strong> Россия</p>
+                    <p><strong>Часовой пояс:</strong> GMT+5 (Екатеринбург)</p>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Обучение</h3>
+                    <p><strong>Школа программирования:</strong> KIBERone</p>
+                    <p><strong>Филиал:</strong> Каменск-Уральский</p>
+                    <p><strong>Направление:</strong> Программирование и дизайн</p>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 30px; padding: 20px; background: var(--accent-light); border-radius: 15px; border-left: 5px solid var(--holly-green);">
+                <h3><i class="fas fa-info-circle"></i> Как со мной связаться?</h3>
+                <p>Лучший способ связаться со мной — позвонить по указанному номеру телефона. Если я не отвечаю,
+                    пожалуйста, перезвоните позже или отправьте SMS-сообщение. Я обязательно вам перезвоню!</p>
+                <p>Также вы можете связаться со мной через мою школу программирования KIBERone в Каменск-Уральском.</p>
+            </div>
+        </section>
+
         <section id="dreams">
             <h2><i class="fas fa-gift"></i> Мои мечты и цели на будущее</h2>
             <p>Я четко понимаю, к чему стремлюсь, и учусь тому, что поможет мне этого добиться:</p>
@@ -635,8 +752,9 @@
                 <i class="fas fa-laptop-code"></i>
             </div>
             <p style="margin-top: 20px; color: var(--text-secondary);">
-                Город: Каменск-Уральский<br>
-                Учеба: KIBERone, Каменск-Уральский
+                <strong>Контакты:</strong> 8 (888) 999-00-77<br>
+                <strong>Город:</strong> Каменск-Уральский<br>
+                <strong>Учеба:</strong> KIBERone, Каменск-Уральский
             </p>
         </div>
     </footer>
@@ -717,6 +835,57 @@
             parentDiv.appendChild(icon);
         };
 
+        // Копирование номера телефона
+        const copyPhoneBtn = document.getElementById('copyPhoneBtn');
+        const phoneNumber = document.getElementById('phoneNumber');
+
+        copyPhoneBtn.addEventListener('click', function () {
+            const phoneText = '888999000777'; // Реальный номер без форматирования
+            navigator.clipboard.writeText(phoneText)
+                .then(() => {
+                    // Визуальная обратная связь
+                    const originalText = copyPhoneBtn.innerHTML;
+                    copyPhoneBtn.innerHTML = '<i class="fas fa-check"></i> Номер скопирован!';
+                    copyPhoneBtn.classList.add('copied');
+
+                    setTimeout(() => {
+                        copyPhoneBtn.innerHTML = originalText;
+                        copyPhoneBtn.classList.remove('copied');
+                    }, 2000);
+
+                    // Анимация подтверждения
+                    phoneNumber.style.transform = 'scale(1.05)';
+                    phoneNumber.style.boxShadow = '0 0 15px rgba(0, 255, 0, 0.5)';
+                    phoneNumber.style.transition = 'all 0.3s ease';
+
+                    setTimeout(() => {
+                        phoneNumber.style.transform = 'scale(1)';
+                        phoneNumber.style.boxShadow = 'none';
+                    }, 500);
+                })
+                .catch(err => {
+                    console.error('Ошибка копирования: ', err);
+                    alert('Не удалось скопировать номер. Попробуйте выделить и скопировать вручную.');
+                });
+        });
+
+        // Клик по номеру телефона также копирует его
+        phoneNumber.addEventListener('click', function () {
+            const phoneText = '888999000777';
+            navigator.clipboard.writeText(phoneText)
+                .then(() => {
+                    // Визуальная обратная связь
+                    const originalColor = phoneNumber.style.color;
+                    phoneNumber.style.color = 'var(--holly-green)';
+                    phoneNumber.style.fontWeight = 'bold';
+
+                    setTimeout(() => {
+                        phoneNumber.style.color = originalColor;
+                        phoneNumber.style.fontWeight = '';
+                    }, 1000);
+                });
+        });
+
         // Инициализация при загрузке страницы
         window.addEventListener('DOMContentLoaded', function () {
             createSnowflakes();
@@ -724,6 +893,7 @@
             // Добавляем новогоднее поздравление в консоль
             console.log("%c🎄 С Новым Годом! 🎅", "color: #c62828; font-size: 20px; font-weight: bold;");
             console.log("%cПортфолио Никиты Колодеюка", "color: #2e7d32; font-size: 16px;");
+            console.log("%cКонтакты: 888999000777", "color: #1a237e; font-size: 14px;");
         });
 
         // Эффект параллакса для украшений
